@@ -195,7 +195,7 @@ const generateAssist = async (code) => {
   setAssistloading(true);
   try {
     const assistresponse = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.REACT_APP_INTELSYAIKEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.REACT_APP_INTELSYAIKEY}`,
       {
         contents: [{ parts: [{ text: "Please assist me in this code, is there any error in the provided code and if there is a error how should I resolve it?, keep your response short and to the point only"+JSON.stringify(code) }] }]
       }
@@ -218,7 +218,7 @@ const generateAssist = async (code) => {
 
     try{
       const explainresponse = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.REACT_APP_INTELSYAIKEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.REACT_APP_INTELSYAIKEY}`,
         {
           contents: [{ parts: [{ text: "Explain me the code that I have provided you"+JSON.stringify(code) }] }]
         }
